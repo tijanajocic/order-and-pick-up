@@ -17,11 +17,26 @@ public class orderAndPickUp {
 		String ingredientName = s.nextLine();
 		double suma = 0;
 
+		while (!ingredientName.equals("Poruci")) {
+			findIngredient(ingredient, ingredientName);
+			int x = findIngredient(ingredient, ingredientName);
+			if (x >= 0) {
+				suma = suma + price[findIngredient(ingredient, ingredientName)];
+			}
+			System.out.println("Izaberite sastojak za pastu: ");
+			ingredientName = s.nextLine();
+		}
 	}
 
 	public static int findIngredient(String[] ingredients, String ingredientName) {
 
-		return 0;
+		for (int i = 0; i < ingredients.length; i++) {
+			if (ingredientName.equals(ingredients[i])) {
+				return i;
+			}
+		}
+
+		return -1;
 	}
 
 	public static boolean isRegularCustomer(String[] phoneNumbers, String phone) {
