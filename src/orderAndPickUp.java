@@ -26,6 +26,15 @@ public class orderAndPickUp {
 			System.out.println("Izaberite sastojak za pastu: ");
 			ingredientName = s.nextLine();
 		}
+
+		System.out.println("Unesite broj telefona: ");
+		String phone = s.next();
+		isRegularCustomer(regularCustomer, phone);
+
+		if (isRegularCustomer(regularCustomer, phone) == true) {
+			suma = suma - (suma * 0.1);
+		}
+		System.out.println("Cena Vase paste je: " + suma);
 	}
 
 	public static int findIngredient(String[] ingredients, String ingredientName) {
@@ -40,6 +49,13 @@ public class orderAndPickUp {
 	}
 
 	public static boolean isRegularCustomer(String[] phoneNumbers, String phone) {
+
+		for (int i = 0; i < phoneNumbers.length; i++) {
+			if (phone.equals(phoneNumbers[i])) {
+				return true;
+			}
+
+		}
 
 		return false;
 	}
